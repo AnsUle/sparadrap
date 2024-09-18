@@ -1,4 +1,4 @@
-package main;
+package Main;
 
 import Controllers.*;
 import Views.*;
@@ -36,7 +36,7 @@ public class MenuFrameSwing extends JFrame {
         layeredPane.setPreferredSize(new Dimension(600, 500));
 
         // Ajouter une image de fond
-        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/main/resource/Image.jpg"));
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/Main/Resource/Image.jpg"));
         if (imageIcon.getImageLoadStatus() != MediaTracker.COMPLETE) {
             System.out.println("Erreur de chargement de l'image");
         }

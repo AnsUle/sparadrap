@@ -5,10 +5,6 @@ import Utilitaire.InputValidator;
 import java.util.ArrayList;
 import java.util.List;
 
-import java.util.List;
-
-import java.util.List;
-
 public class Medecin extends Personne {
     private String numAgrement;
     private List<Client> patients;

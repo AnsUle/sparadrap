@@ -30,16 +30,18 @@ public class MutuelleManager {
     public void removeMutuelle(Mutuelle mutuelle) {
         mutuelles.remove(mutuelle);
     }
+
+    // Ajouter une mutuelle
     public void  addMutuelle(Mutuelle mutuelle) {
         mutuelles.add(mutuelle);
     }
-
+//Getters
     public List<Mutuelle> getMutuelles() {
         return mutuelles;
     }
 
     // Trouver une mutuelle par nom
-    public Mutuelle findMutuelleByName(String nom) {
+   public Mutuelle findMutuelleByName(String nom) {
         for (Mutuelle mutuelle : mutuelles) {
             if (mutuelle.getNom().equalsIgnoreCase(nom)) {
                 return mutuelle;

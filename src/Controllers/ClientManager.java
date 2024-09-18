@@ -37,7 +37,7 @@ public class ClientManager {
         List<Specialiste> specialistes2 = new ArrayList<>();
         //specialistes2.add(specialisteManager.findSpecialisteByName("Dr. Lefevre"));
 
-        Client client1 = new Client("Durand", "Paul", "123 Rue des Clients", "75001", "Paris", "0142003000", "paul.durand@example.com", "1234567890", new Date(), mutuelle1, medecin1, specialistes1);
+        Client client1 = new Client("Durand", "Paul", "123 Rue des Clients", "75001", "Paris", "0142003000", "paul.durand@example.com", "1234567890", new Date(), mutuelle1 , medecin1, specialistes1);
         Client client2 = new Client("Martin", "Sophie", "456 Avenue des Clients", "69002", "Lyon", "0478009000", "sophie.martin@example.com", "0987654321", new Date(), mutuelle2, medecin2, specialistes2);
 
         clients.add(client1);

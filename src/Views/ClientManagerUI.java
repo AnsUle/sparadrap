@@ -205,6 +205,9 @@ public class ClientManagerUI extends JFrame {
             // Mettre à jour la table
             afficherClients();
 
+            // Réinitialiser les champs du formulaire
+            resetForm();
+
         } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(this, "Erreur : " + e.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
         } catch (Exception e) {
@@ -212,6 +215,20 @@ public class ClientManagerUI extends JFrame {
             e.printStackTrace(); // Afficher la trace de la pile pour le débogage
         }
     }
+
+    private void resetForm() {
+        nomField.setText("");
+        prenomField.setText("");
+        adresseField.setText("");
+        codePostalField.setText("");
+        villeField.setText("");
+        telephoneField.setText("");
+        emailField.setText("");
+        numSecuriteSocialField.setText("");
+        medecinComboBox.setSelectedIndex(0); // Sélectionner le premier médecin
+        mutuelleComboBox.setSelectedIndex(0); // Sélectionner la première mutuelle
+    }
+
 
     // Méthode pour supprimer un client
     private void supprimerClient() {

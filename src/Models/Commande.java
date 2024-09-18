@@ -17,7 +17,7 @@ public class Commande {
         this.lignesCommande = new ArrayList<>();
         this.estSurOrdonnance = estSurOrdonnance;
     }
-
+//Getter
     public List<LigneCommande> getLignesCommande() {
         return lignesCommande;
     }
@@ -53,7 +53,7 @@ public class Commande {
             }
         }
     }
-
+//Ajouter un medicament
     public void ajouterMedicament(Medicament medicament, int quantite) {
         if (quantite <= medicament.getQuantite()) {
             medicament.setQuantite(medicament.getQuantite() - quantite);
@@ -63,7 +63,7 @@ public class Commande {
             throw new IllegalArgumentException("Quantité demandée non disponible.");
         }
     }
-
+//Afficher les medicaments
     public String afficherCommande() {
         StringBuilder sb = new StringBuilder();
         sb.append("Commande du client : ").append(client).append("\n");

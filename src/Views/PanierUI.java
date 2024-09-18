@@ -40,7 +40,7 @@ public class PanierUI extends JFrame {
 
         // Configuration de la fenêtre principale
         setTitle("Gestion des Commandes");
-        setSize(1500, 600);
+        setSize(1300, 600);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new BorderLayout());
 

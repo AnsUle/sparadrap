@@ -16,10 +16,10 @@ public class SpecialisteManager {
 
     // Initialiser les spécialistes
     private void initializeSpecialistes() {
-        Specialiste specialiste1 = new Specialiste("Dr. Roche", "Alice", "123 Rue de la Médecine", "75001", "Paris", "0142003006", "dr.roche@example.com", "Cardiologie");
-        Specialiste specialiste2 = new Specialiste("Dr. Lefevre", "Julien", "456 Avenue des Médecins", "69002", "Lyon", "0478009008", "dr.lefevre@example.com", "Dermatologie");
-        Specialiste specialiste3 = new Specialiste("Dr. Bernard", "Sophie", "789 Boulevard de la Santé", "13003", "Marseille", "0491002009", "dr.bernard@example.com", "Neurologie");
-        Specialiste specialiste4 = new Specialiste("Dr. Petit", "Paul", "101 Rue des Spécialistes", "31000", "Toulouse", "0567008010", "dr.petit@example.com", "Orthopédie");
+        Specialiste specialiste1 = new Specialiste("Roche", "Alice", "123 Rue de la Médecine", "75001", "Paris", "0142003006", "dr.roche@example.com", "Cardiologie");
+        Specialiste specialiste2 = new Specialiste("Lefevre", "Julien", "456 Avenue des Médecins", "69002", "Lyon", "0478009008", "dr.lefevre@example.com", "Dermatologie");
+        Specialiste specialiste3 = new Specialiste("Bernard", "Sophie", "789 Boulevard de la Santé", "13003", "Marseille", "0491002009", "dr.bernard@example.com", "Neurologie");
+        Specialiste specialiste4 = new Specialiste("Petit", "Paul", "101 Rue des Spécialistes", "31000", "Toulouse", "0567008010", "dr.petit@example.com", "Orthopédie");
 
         // Ajout des spécialistes à la liste
         specialistes.add(specialiste1);

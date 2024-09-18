@@ -9,7 +9,7 @@ public class InputValidator {
         if (name == null || name.isEmpty()) {
             return false;
         }
-        return true;//Pattern.matches("[a-zA-Z]+", name);
+        return Pattern.matches("^[a-zA-ZÀ-ÿ]+([ '-][a-zA-ZÀ-ÿ]+)*$", name);
     }
 
     // Méthode pour valider un prénom

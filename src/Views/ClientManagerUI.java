@@ -174,24 +174,43 @@ public class ClientManagerUI extends JFrame {
 
     // Méthode pour ajouter un client
     private void ajouterClient() {
-        String nom = nomField.getText();
-        String prenom = prenomField.getText();
-        String adresse = adresseField.getText();
-        String codePostal = codePostalField.getText();
-        String ville = villeField.getText();
-        String telephone = telephoneField.getText();
-        String email = emailField.getText();
-        String numSecuriteSocial = numSecuriteSocialField.getText();
+        try {
+            String nom = nomField.getText();
+            String prenom = prenomField.getText();
+            String adresse = adresseField.getText();
+            String codePostal = codePostalField.getText();
+            String ville = villeField.getText();
+            String telephone = telephoneField.getText();
+            String email = emailField.getText();
+            String numSecuriteSocial = numSecuriteSocialField.getText();
 
-        // Récupérer le médecin et la mutuelle sélectionnés
-        Medecin medecin = (Medecin) medecinComboBox.getSelectedItem();
-        Mutuelle mutuelle = (Mutuelle) mutuelleComboBox.getSelectedItem();
+            // Vérifier que les champs obligatoires ne sont pas vides
+            if (nom.isEmpty() || prenom.isEmpty() || adresse.isEmpty() || codePostal.isEmpty() || ville.isEmpty()) {
+                throw new IllegalArgumentException("Tous les champs obligatoires doivent être remplis.");
+            }
 
-        Client client = new Client(nom, prenom, adresse, codePostal, ville, telephone, email, numSecuriteSocial, new java.util.Date(), mutuelle, medecin, null);
-        clientManager.ajouterClient(client);
+            // Récupérer le médecin et la mutuelle sélectionnés
+            Medecin medecin = (Medecin) medecinComboBox.getSelectedItem();
+            Mutuelle mutuelle = (Mutuelle) mutuelleComboBox.getSelectedItem();
 
-        // Mettre à jour la table
-        afficherClients();
+            if (medecin == null || mutuelle == null) {
+                throw new IllegalArgumentException("Le médecin ou la mutuelle sélectionnés sont invalides.");
+            }
+
+            Client client = new Client(nom, prenom, adresse, codePostal, ville, telephone, email, numSecuriteSocial, new java.util.Date(), mutuelle, medecin, null);
+
+            // Ajouter le client à la gestion des clients
+            clientManager.ajouterClient(client);
+
+            // Mettre à jour la table
+            afficherClients();
+
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(this, "Erreur : " + e.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Une erreur est survenue : " + e.getMessage(), "Erreur", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace(); // Afficher la trace de la pile pour le débogage
+        }
     }
 
     // Méthode pour supprimer un client

@@ -36,7 +36,7 @@ public class MenuFrameSwing extends JFrame {
         layeredPane.setPreferredSize(new Dimension(600, 500));
 
         // Ajouter une image de fond
-        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/Main/Resource/logo.jpeg"));
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/Main/Resource/Image.jpg"));
         if (imageIcon.getImageLoadStatus() != MediaTracker.COMPLETE) {
             System.out.println("Erreur de chargement de l'image");
         }
@@ -54,27 +54,27 @@ public class MenuFrameSwing extends JFrame {
         btnAjouterCommande.setIcon(new ImageIcon("images/Logo.png"));
         btnAjouterCommande.setBackground(Color.BLUE);
         btnAjouterCommande.setForeground(Color.black);
-        btnAjouterCommande.setFont(new Font("Arial",Font.ROMAN_BASELINE, 14));
+        btnAjouterCommande.setFont(new Font("Arial",Font.ROMAN_BASELINE, 12));
 
         JButton btnGestionClients = new JButton("Gestion des clients");
         btnGestionClients.setBackground(Color.GREEN);
         btnGestionClients.setForeground(Color.black);
-        btnGestionClients.setFont(new Font("Arial",Font.ROMAN_BASELINE, 14));
+        btnGestionClients.setFont(new Font("Arial",Font.ROMAN_BASELINE, 12));
 
         JButton btnAfficherMedecin = new JButton("Gestion des medecins");
         btnAfficherMedecin.setBackground(Color.ORANGE);
         btnAfficherMedecin.setForeground(Color.black);
-        btnAfficherMedecin.setFont(new Font("Arial",Font.ROMAN_BASELINE, 14));
+        btnAfficherMedecin.setFont(new Font("Arial",Font.ROMAN_BASELINE, 12));
 
         JButton btnAfficherSpecialiste = new JButton("Gestion des specialistes");
         btnAfficherSpecialiste.setBackground(Color.CYAN);
         btnAfficherSpecialiste.setForeground(Color.black);
-        btnAfficherSpecialiste.setFont(new Font("Arial",Font.ROMAN_BASELINE, 14));
+        btnAfficherSpecialiste.setFont(new Font("Arial",Font.ROMAN_BASELINE, 12));
 
         JButton btnAfficherMutuelle = new JButton("Gestion des Mutuelles");
         btnAfficherMutuelle.setBackground(Color.MAGENTA);
         btnAfficherMutuelle.setForeground(Color.BLACK);
-        btnAfficherMutuelle.setFont(new Font("Arial",Font.ROMAN_BASELINE, 14));
+        btnAfficherMutuelle.setFont(new Font("Arial",Font.ROMAN_BASELINE, 12));
 
         JButton btnQuitter = new JButton("Quitter");
         btnQuitter.setBackground(Color.RED);

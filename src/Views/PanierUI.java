@@ -31,6 +31,9 @@ public class PanierUI extends JFrame {
     private DefaultTableModel commandesTableModel;
     private JTextField dateRechercheTextField;  // Nouveau champ pour la recherche par date
     private JButton rechercherButton;  // Nouveau bouton de recherche
+    private JTable commandeTable;
+    private DefaultTableModel commandeTableModel;
+
 
 
     public PanierUI() {
@@ -98,9 +101,15 @@ public class PanierUI extends JFrame {
         add(actionPanel, BorderLayout.SOUTH);
 
         // Zone de texte pour afficher la commande
-        commandeTextArea = new JTextArea(10, 40);
-        commandeTextArea.setEditable(false);
-        add(new JScrollPane(commandeTextArea), BorderLayout.EAST);
+        //commandeTextArea = new JTextArea(10, 40);
+        //commandeTextArea.setEditable(false);
+        //add(new JScrollPane(commandeTextArea), BorderLayout.EAST);
+
+        // Remplacer par un tableau pour afficher les détails de la commande
+        String[] commandeColumnNames = {"Médicament", "Quantité", "Prix unitaire (€)", "Sous-total (€)"};
+        commandeTableModel = new DefaultTableModel(commandeColumnNames, 0);
+        commandeTable = new JTable(commandeTableModel);
+        add(new JScrollPane(commandeTable), BorderLayout.EAST);
 
         // Initialisation d'une commande sans ordonnance par défaut
         commande = new Commande(clients.get(0), false);
@@ -320,7 +329,7 @@ public class PanierUI extends JFrame {
         }
     }
 
-    private void afficherCommande() {
+    /*private void afficherCommande() {
         commandeTextArea.setText("");
         StringBuilder commandeDetails = new StringBuilder();
         commandeDetails.append("Commande du client : ").append(commande.getClient()).append("\n");
@@ -335,7 +344,28 @@ public class PanierUI extends JFrame {
         }
         commandeDetails.append("\nTotal : ").append(total).append(" €");
         commandeTextArea.setText(commandeDetails.toString());
+    }*/
+    private void afficherCommande() {
+        // Vider le tableau avant d'ajouter les nouvelles lignes
+        commandeTableModel.setRowCount(0);
+
+        double total = 0;
+        for (LigneCommande ligneCommande : commande.getLignesCommande()) {
+            Medicament medicament = ligneCommande.getMedicament();
+            int quantite = ligneCommande.getQuantite();
+            double sousTotal = ligneCommande.getSousTotal();
+            total += sousTotal;
+
+            // Ajouter chaque ligne de commande au tableau
+            Object[] row = {medicament.getNom(), quantite, medicament.getPrix(), sousTotal};
+            commandeTableModel.addRow(row);
+        }
+
+        // Ajouter une ligne pour le total
+        Object[] totalRow = {"Total", "", "", total};
+        commandeTableModel.addRow(totalRow);
     }
+
 
     private void afficherDetailsCommande(int selectedRow) {
         Commande commandeSelectionnee = commandeManager.getCommandes().get(selectedRow);

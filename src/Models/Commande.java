@@ -38,6 +38,15 @@ public class Commande {
         lignesCommande.removeIf(ligne -> ligne.getMedicament().equals(medicament));
     }
 
+    public double getTotalPrix() {
+        double total = 0;
+        for (LigneCommande ligneCommande : lignesCommande) {
+            total += ligneCommande.getSousTotal();
+        }
+        return total;
+    }
+
+//modifier la quantité
     public void modifierQuantite(Medicament medicament, int nouvelleQuantite) {
         for (LigneCommande ligneCommande : lignesCommande) {
             if (ligneCommande.getMedicament().equals(medicament)) {
@@ -88,11 +97,4 @@ public class Commande {
         return total;
     }
 
-    public double getTotalPrix() {
-        double total = 0;
-        for (LigneCommande ligneCommande : lignesCommande) {
-            total += ligneCommande.getSousTotal();
-        }
-        return total;
-    }
 }

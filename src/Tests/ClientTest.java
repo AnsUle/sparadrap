@@ -1,6 +1,6 @@
 package Tests;
 
-import Controllers.MutuelleManager;
+
 import Models.Client;
 import Models.Medecin;
 import Models.Mutuelle;
